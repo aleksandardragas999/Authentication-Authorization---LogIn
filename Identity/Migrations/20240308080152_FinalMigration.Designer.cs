@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Identity.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240307135854_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20240308080152_FinalMigration")]
+    partial class FinalMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,7 @@ namespace Identity.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -134,19 +134,19 @@ namespace Identity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "00034805-35d3-4815-bc6b-480865beabcb",
+                            Id = "cf20ea1f-e2b0-43ed-907c-6ad35ae1ca84",
                             Name = "admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "49888ac5-8fa9-40ed-9882-a37d7577d84e",
+                            Id = "8ddf8887-c1c1-431a-9b19-7183e1adcb53",
                             Name = "client",
                             NormalizedName = "client"
                         },
                         new
                         {
-                            Id = "653ca48d-4d83-4a25-bf6b-f7212ded61b6",
+                            Id = "68116be4-cd36-4a09-bd73-14690fbbae36",
                             Name = "seller",
                             NormalizedName = "seller"
                         });
@@ -205,10 +205,12 @@ namespace Identity.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -245,10 +247,12 @@ namespace Identity.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
